@@ -3,28 +3,13 @@
 import Image from 'next/image'
 import Script from 'next/script'
 import { useEffect } from 'react'
+import OneSignal from 'react-onesignal'
+import runOneSignal from './signal'
 
-declare var OneSignal: any
 export default function Home() {
 	useEffect(() => {
-		// @ts-ignore
-		window.OneSignal = window.OneSignal || []
-		OneSignal.push(function () {
-			OneSignal.init({
-				appId: 'b40b7cc7-13dc-4662-8b48-efa668f9b72a',
-				notifyButton: {
-					enable: true,
-				},
-
-				allowLocalhostAsSecureOrigin: true,
-			})
-		})
-
-		return () => {
-			// @ts-ignore
-			window.OneSignal = undefined
-		}
-	}, []) //
+		runOneSignal();
+	}, [])
 
 	return (
 		<main
@@ -131,19 +116,7 @@ export default function Home() {
 				</a>
 			</div>
 			<Script id='onesignal'>
-				window.OneSignalDeferred = window.OneSignalDeferred || [];
-				OneSignalDeferred.push(function(OneSignal){' '}
-				{
-					//@ts-ignore
-					typeof window !== 'undefined' && OneSignal.init({
-						appId: 'c4f58ac6-03b8-4711-9f98-559eb7e625f0',
-						safari_web_id: 'web.onesignal.auto.35f9fdf2-e602-4832-95b7-1c199bdb2bd7',
-						notifyButton: {
-							enable: true,
-						},
-					})
-				}
-				)
+					runOneSignal();
 			</Script>
 		</main>
 	)
