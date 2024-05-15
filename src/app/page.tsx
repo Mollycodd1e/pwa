@@ -27,7 +27,9 @@ export default function Home() {
 	}, []) //
 
 	return (
-		<main className='flex min-h-screen flex-col items-center justify-between p-24' style={{background: 'blue'}}>
+		<main
+			className='flex min-h-screen flex-col items-center justify-between p-24'
+			style={{ background: 'blue' }}>
 			<div className='z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex'>
 				<p className='fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30'>
 					Get started by editing&nbsp;
@@ -130,18 +132,15 @@ export default function Home() {
 			</div>
 			<Script id='onesignal'>
 				window.OneSignalDeferred = window.OneSignalDeferred || [];
-				OneSignalDeferred.push(function(OneSignal){' '}
-				{typeof window !== 'undefined' &&
-					// @ts-ignore
-					window?.OneSignal &&
-					OneSignal.init({
-						appId: 'c4f58ac6-03b8-4711-9f98-559eb7e625f0',
-						safari_web_id: 'web.onesignal.auto.35f9fdf2-e602-4832-95b7-1c199bdb2bd7',
-						notifyButton: {
-							enable: true,
-						},
-					})}
-				);
+					OneSignalDeferred.push(function(OneSignal){' '}
+				{OneSignal.init({
+					appId: 'c4f58ac6-03b8-4711-9f98-559eb7e625f0',
+					safari_web_id: 'web.onesignal.auto.35f9fdf2-e602-4832-95b7-1c199bdb2bd7',
+					notifyButton: {
+						enable: true,
+					},
+				})}
+				)
 			</Script>
 		</main>
 	)
