@@ -132,14 +132,17 @@ export default function Home() {
 			</div>
 			<Script id='onesignal'>
 				window.OneSignalDeferred = window.OneSignalDeferred || [];
-					OneSignalDeferred.push(function(OneSignal){' '}
-				{OneSignal.init({
-					appId: 'c4f58ac6-03b8-4711-9f98-559eb7e625f0',
-					safari_web_id: 'web.onesignal.auto.35f9fdf2-e602-4832-95b7-1c199bdb2bd7',
-					notifyButton: {
-						enable: true,
-					},
-				})}
+				OneSignalDeferred.push(function(OneSignal){' '}
+				{
+					//@ts-ignore
+					typeof window !== 'undefined' && window.OneSignal.init({
+						appId: 'c4f58ac6-03b8-4711-9f98-559eb7e625f0',
+						safari_web_id: 'web.onesignal.auto.35f9fdf2-e602-4832-95b7-1c199bdb2bd7',
+						notifyButton: {
+							enable: true,
+						},
+					})
+				}
 				)
 			</Script>
 		</main>
